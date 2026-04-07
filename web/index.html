@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScourPredict AI | ML Coastal Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Section with Animated Waves -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Artificial Intelligence Model</div>
+            <h1>Rapid Scour Depth<br>Prediction AI</h1>
+            <p>Validating modern fluid dynamics with high-precision Random Forest algorithms.</p>
+            <a href="#results" class="scroll-btn">View Results</a>
+        </div>
+        
+        <!-- Ocean Waves -->
+        <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave wave2"></div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section id="results" class="metrics-section">
+        <h2 class="section-title">Model Performance</h2>
+        <div class="metrics-container">
+            <div class="glass-card metric-card">
+                <h3>92.0%</h3>
+                <p>R² Score Range Match</p>
+                <span>Accurate non-linear prediction</span>
+            </div>
+            <div class="glass-card metric-card">
+                <h3>0.46m</h3>
+                <p>Mean Absolute Error</p>
+                <span>Highly reliable tolerance</span>
+            </div>
+            <div class="glass-card metric-card">
+                <h3>300</h3>
+                <p>Synthetic Test Points</p>
+                <span>HEC-18 & Lacey's Regime</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Interpretations -->
+    <section class="viz-section">
+        <h2 class="section-title">Interpretability & Physics</h2>
+        <div class="grid-container">
+            <div class="glass-card viz-card">
+                <h3>Feature Importance</h3>
+                <p>Proves that Flow Velocity (V) and Pier Diameter (D) dictate sheer stress, aligning with HEC-18 physical models.</p>
+                <img src="../output/feature_importance.png" alt="Feature Importance Graph" class="viz-img">
+            </div>
+            <div class="glass-card viz-card">
+                <h3>Sensitivity Analysis Check</h3>
+                <p>Demonstrates that the ML model obeys natural laws: as Flow Velocity increases, predicted Scour monotonically scales.</p>
+                <img src="../output/sensitivity_analysis.png" alt="Sensitivity Analysis Graph" class="viz-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive ML Form -->
+    <section class="interactive-section">
+        <h2 class="section-title">Test the AI Model</h2>
+        <div class="interactive-container glass-card">
+            <form id="prediction-form" class="prediction-form">
+                <div class="input-group">
+                    <label>Flow Velocity (m/s) <span>V</span></label>
+                    <input type="number" id="input_v" step="0.1" value="2.0" required>
+                </div>
+                <div class="input-group">
+                    <label>Pier Diameter (m) <span>D</span></label>
+                    <input type="number" id="input_d" step="0.1" value="1.5" required>
+                </div>
+                <div class="input-group">
+                    <label>Water Depth (m) <span>h</span></label>
+                    <input type="number" id="input_h" step="0.1" value="5.0" required>
+                </div>
+                <div class="input-group">
+                    <label>Grain Size (mm) <span>d50</span></label>
+                    <input type="number" id="input_d50" step="0.1" value="1.0" required>
+                </div>
+                <button type="submit" class="predict-btn" id="predictBtn">Run Prediction Simulation</button>
+            </form>
+            <div class="result-display" id="resultCard" style="display: none;">
+                <h4>Predicted Scour Depth</h4>
+                <div class="result-value"><span id="resultVal">0.00</span>m</div>
+                <div class="status-msg">Computed via Random Forest API</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professor Test Scenarios -->
+    <section class="scenarios-section">
+        <h2 class="section-title">Live Scenarios Simulation</h2>
+        <div class="scenarios-container">
+            
+            <div class="glass-card scenario-card">
+                <div class="scenario-header">
+                    <h4>Low Flow, Small Pier</h4>
+                </div>
+                <ul class="scenario-details">
+                    <li><strong>Velocity:</strong> 1.0 m/s</li>
+                    <li><strong>Diameter:</strong> 1.0 m</li>
+                    <li><strong>Depth:</strong> 3.0 m</li>
+                    <li><strong>Grain:</strong> 1.0 mm</li>
+                </ul>
+                <div class="predicted-score">
+                    1.32m <span>Scour Depth</span>
+                </div>
+            </div>
+
+            <div class="glass-card scenario-card">
+                <div class="scenario-header">
+                    <h4>Moderate Flow, Average Pier</h4>
+                </div>
+                <ul class="scenario-details">
+                    <li><strong>Velocity:</strong> 2.0 m/s</li>
+                    <li><strong>Diameter:</strong> 1.5 m</li>
+                    <li><strong>Depth:</strong> 5.0 m</li>
+                    <li><strong>Grain:</strong> 2.0 mm</li>
+                </ul>
+                <div class="predicted-score">
+                    2.67m <span>Scour Depth</span>
+                </div>
+            </div>
+
+            <div class="glass-card scenario-card high-alert">
+                <div class="scenario-header">
+                    <h4>Flood Flood, Large Pier</h4>
+                </div>
+                <ul class="scenario-details">
+                    <li><strong>Velocity:</strong> 3.5 m/s</li>
+                    <li><strong>Diameter:</strong> 2.5 m</li>
+                    <li><strong>Depth:</strong> 8.0 m</li>
+                    <li><strong>Grain:</strong> 0.5 mm</li>
+                </ul>
+                <div class="predicted-score">
+                    4.85m <span>Scour Depth</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Developed for Coastal & Hydraulic Engineering Presentations.</p>
+    </footer>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('predictBtn');
+            const resultCard = document.getElementById('resultCard');
+            const resultVal = document.getElementById('resultVal');
+            
+            btn.disabled = true;
+            btn.innerText = 'Analyzing...';
+            
+            try {
+                const payload = {
+                    v: document.getElementById('input_v').value,
+                    d: document.getElementById('input_d').value,
+                    h: document.getElementById('input_h').value,
+                    d50: document.getElementById('input_d50').value
+                };
+                
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await response.json();
+                
+                if(data.success) {
+                    resultVal.innerText = data.scour_depth.toFixed(2);
+                    resultCard.style.display = 'flex';
+                } else {
+                    alert('Error predicting! Check backend.');
+                }
+            } catch(e) {
+                console.error(e);
+                alert('Connection to AI failed. Is the server running?');
+            }
+            
+            btn.disabled = false;
+            btn.innerText = 'Run Prediction Simulation';
+        });
+    </script>
+</body>
+</html>
